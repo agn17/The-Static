@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bj4lbvoxb77d2"]
+
+[ext_resource type="Script" uid="uid://uen7a6req1vp" path="res://Scripts/ghost.gd" id="1_3mxmt"]
+
+[node name="Ghost" type="Node2D" unique_id=2031822428]
+script = ExtResource("1_3mxmt")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2122967767]
+position_smoothing_enabled = true

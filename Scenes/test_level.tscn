@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://mlqshk88svtp"]
+
+[ext_resource type="PackedScene" uid="uid://dat14owhdeh2y" path="res://Scenes/frog.tscn" id="1_dtjkg"]
+[ext_resource type="PackedScene" uid="uid://bj4lbvoxb77d2" path="res://Scenes/ghost.tscn" id="2_eglq2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lpde8"]
+size = Vector2(532, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4t0r"]
+size = Vector2(8, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vadd4"]
+size = Vector2(57, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5glg"]
+size = Vector2(8, 8)
+
+[node name="TestLevel" type="Node2D" unique_id=940832005]
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=2145054604]
+position = Vector2(0, 160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=368314384]
+position = Vector2(266, 10)
+shape = SubResource("RectangleShape2D_lpde8")
+
+[node name="ColorRect" type="ColorRect" parent="Floor" unique_id=1602177119]
+offset_top = -1.0
+offset_right = 532.0
+offset_bottom = 21.0
+
+[node name="Ceiling" type="StaticBody2D" parent="." unique_id=471091230]
+position = Vector2(0, 66)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling" unique_id=1645176898]
+position = Vector2(266.5, 10)
+shape = SubResource("RectangleShape2D_lpde8")
+
+[node name="ColorRect" type="ColorRect" parent="Ceiling" unique_id=1207990595]
+offset_top = -1.0
+offset_right = 532.0
+offset_bottom = 21.0
+
+[node name="Doorway" type="StaticBody2D" parent="." unique_id=396030328]
+position = Vector2(280, 86)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doorway" unique_id=720984355]
+position = Vector2(36, 12.5)
+shape = SubResource("RectangleShape2D_c4t0r")
+
+[node name="ColorRect" type="ColorRect" parent="Doorway" unique_id=366754595]
+offset_left = 32.0
+offset_right = 40.0
+offset_bottom = 22.0
+
+[node name="table" type="StaticBody2D" parent="." unique_id=66586763]
+position = Vector2(71, 135)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="table" unique_id=574504072]
+position = Vector2(42.5, 12)
+shape = SubResource("RectangleShape2D_vadd4")
+
+[node name="ColorRect" type="ColorRect" parent="table" unique_id=800471514]
+offset_left = 15.0
+offset_top = 1.0
+offset_right = 71.0
+offset_bottom = 23.0
+color = Color(0.99983567, 0.7438916, 0.70718074, 1)
+
+[node name="threshold" type="StaticBody2D" parent="." unique_id=1590768433]
+position = Vector2(309, 150)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="threshold" unique_id=534251871]
+position = Vector2(6, 5)
+shape = SubResource("RectangleShape2D_w5glg")
+
+[node name="ColorRect" type="ColorRect" parent="threshold" unique_id=23992168]
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 10.0
+offset_bottom = 9.0
+color = Color(0.7187428, 0.6764048, 0.56289953, 1)
+
+[node name="Frog" parent="." unique_id=970392460 instance=ExtResource("1_dtjkg")]
+position = Vector2(197, 150)
+
+[node name="Ghost" parent="." unique_id=2031822428 instance=ExtResource("2_eglq2")]
+position = Vector2(162, 148)

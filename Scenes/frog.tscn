@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://dat14owhdeh2y"]
+
+[ext_resource type="Script" uid="uid://1m0inuxmef4l" path="res://Scripts/frog.gd" id="1_4ygq6"]
+[ext_resource type="Texture2D" uid="uid://i437amf8x4no" path="res://Assets/Froggo 1_0/Froggo/Spritesheets/Idle.png" id="1_85unm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5glg"]
+size = Vector2(20, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ygq6"]
+atlas = ExtResource("1_85unm")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3muq"]
+atlas = ExtResource("1_85unm")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvrdk"]
+atlas = ExtResource("1_85unm")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anyvr"]
+atlas = ExtResource("1_85unm")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4t0r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ygq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3muq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvrdk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_anyvr")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Frog" type="CharacterBody2D" unique_id=970392460]
+script = ExtResource("1_4ygq6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=685625459]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_w5glg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1416836879]
+sprite_frames = SubResource("SpriteFrames_c4t0r")
+animation = &"idle"
+autoplay = "idle"
