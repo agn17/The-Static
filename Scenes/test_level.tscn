@@ -2,6 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://dat14owhdeh2y" path="res://Scenes/frog.tscn" id="1_dtjkg"]
 [ext_resource type="PackedScene" uid="uid://bj4lbvoxb77d2" path="res://Scenes/ghost.tscn" id="2_eglq2"]
+[ext_resource type="PackedScene" uid="uid://c30tv0nw7t8sa" path="res://Scenes/Microwave.tscn" id="3_eglq2"]
+[ext_resource type="AudioStream" uid="uid://c8fr8jxxqrdlb" path="res://Sounds/yodguard-scorpion-claw-attack-4-482507.mp3" id="4_rsyfn"]
+[ext_resource type="PackedScene" uid="uid://b1wohawu866gt" path="res://Scenes/resident.tscn" id="5_7w7ni"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpde8"]
 size = Vector2(532, 24)
@@ -69,6 +72,7 @@ color = Color(0.99983567, 0.7438916, 0.70718074, 1)
 
 [node name="threshold" type="StaticBody2D" parent="." unique_id=1590768433]
 position = Vector2(309, 150)
+collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="threshold" unique_id=534251871]
 position = Vector2(6, 5)
@@ -86,3 +90,11 @@ position = Vector2(197, 150)
 
 [node name="Ghost" parent="." unique_id=2031822428 instance=ExtResource("2_eglq2")]
 position = Vector2(162, 148)
+
+[node name="Microwave" parent="." unique_id=1577730721 instance=ExtResource("3_eglq2")]
+position = Vector2(118, 129)
+sound = ExtResource("4_rsyfn")
+
+[node name="Resident" parent="." unique_id=479741710 instance=ExtResource("5_7w7ni")]
+position = Vector2(264, 146)
+scale = Vector2(1.5, 1.5)

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c30tv0nw7t8sa"]
+
+[ext_resource type="PackedScene" uid="uid://bptrfg8snvrb3" path="res://Scenes/device.tscn" id="1_ioxth"]
+[ext_resource type="Texture2D" uid="uid://cln7em6pwsnw6" path="res://Assets/House-kitchen-Sheet2.png" id="2_qulpk"]
+
+[node name="Microwave" unique_id=1577730721 instance=ExtResource("1_ioxth")]
+signal_volume = 1.0
+cooldown = 3.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=1537131844]
+texture = ExtResource("2_qulpk")

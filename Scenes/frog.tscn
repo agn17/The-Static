@@ -2,12 +2,39 @@
 
 [ext_resource type="Script" uid="uid://1m0inuxmef4l" path="res://Scripts/frog.gd" id="1_4ygq6"]
 [ext_resource type="Texture2D" uid="uid://i437amf8x4no" path="res://Assets/Froggo 1_0/Froggo/Spritesheets/Idle.png" id="1_85unm"]
+[ext_resource type="Texture2D" uid="uid://cgjnikqf0yaho" path="res://Assets/Froggo 1_0/Froggo/Spritesheets/Land.png" id="2_anyvr"]
+[ext_resource type="Texture2D" uid="uid://wdukxoxg7irq" path="res://Assets/Froggo 1_0/Froggo/Spritesheets/Fall.png" id="3_hdff1"]
+[ext_resource type="Texture2D" uid="uid://dtshnfutrbh30" path="res://Assets/Froggo 1_0/Froggo/Spritesheets/Lande.png" id="3_poaat"]
+[ext_resource type="Texture2D" uid="uid://cp6ynnhexhbj3" path="res://Assets/Froggo 1_0/Froggo/Spritesheets/Falle.png" id="5_poaat"]
+[ext_resource type="PackedScene" uid="uid://0veqw1mvvhh6" path="res://Scenes/possession_zone.tscn" id="6_hdff1"]
+[ext_resource type="Texture2D" uid="uid://dsrd8ddvubbai" path="res://Assets/Froggo 1_0/Froggo/Spritesheets/Jumpe.png" id="6_igvty"]
+[ext_resource type="Texture2D" uid="uid://bn2rwg2eaj452" path="res://Assets/Froggo 1_0/Froggo/Spritesheets/PIdle.png" id="6_kbuj8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w5glg"]
 size = Vector2(20, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ygq6"]
-atlas = ExtResource("1_85unm")
+[sub_resource type="AtlasTexture" id="AtlasTexture_igvty"]
+atlas = ExtResource("2_anyvr")
+region = Rect2(0, 21, 64, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poaat"]
+atlas = ExtResource("2_anyvr")
+region = Rect2(64, 21, 64, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbtt2"]
+atlas = ExtResource("3_poaat")
+region = Rect2(0, 21, 64, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23tcg"]
+atlas = ExtResource("3_poaat")
+region = Rect2(64, 21, 64, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oox6q"]
+atlas = ExtResource("3_hdff1")
+region = Rect2(0, 21, 64, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bqyd"]
+atlas = ExtResource("5_poaat")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c3muq"]
@@ -22,12 +49,73 @@ region = Rect2(0, 64, 64, 64)
 atlas = ExtResource("1_85unm")
 region = Rect2(64, 64, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6qwv"]
+atlas = ExtResource("6_igvty")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3onm"]
+atlas = ExtResource("6_kbuj8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dx6eh"]
+atlas = ExtResource("6_kbuj8")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm75c"]
+atlas = ExtResource("6_kbuj8")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bptqa"]
+atlas = ExtResource("6_kbuj8")
+region = Rect2(64, 64, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_c4t0r"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4ygq6")
+"texture": SubResource("AtlasTexture_igvty")
 }, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_poaat")
+}],
+"loop": 1,
+"name": &"charge",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbtt2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbtt2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23tcg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23tcg")
+}],
+"loop": 1,
+"name": &"charged",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oox6q")
+}],
+"loop": 1,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bqyd")
+}],
+"loop": 1,
+"name": &"falle",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c3muq")
 }, {
@@ -40,10 +128,37 @@ animations = [{
 "loop": 1,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6qwv")
+}],
+"loop": 1,
+"name": &"jumpe",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3onm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dx6eh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm75c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bptqa")
+}],
+"loop": 1,
+"name": &"pidle",
+"speed": 5.0
 }]
 
 [node name="Frog" type="CharacterBody2D" unique_id=970392460]
+collision_mask = 17
 script = ExtResource("1_4ygq6")
+sprite_faces_right = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=685625459]
 position = Vector2(0, 2)
@@ -52,4 +167,5 @@ shape = SubResource("RectangleShape2D_w5glg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1416836879]
 sprite_frames = SubResource("SpriteFrames_c4t0r")
 animation = &"idle"
-autoplay = "idle"
+
+[node name="PossessionZone" parent="." unique_id=1544379453 instance=ExtResource("6_hdff1")]

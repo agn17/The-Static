@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bptrfg8snvrb3"]
+
+[ext_resource type="Script" uid="uid://4cbargwb1gt6" path="res://Scripts/device.gd" id="1_7okay"]
+[ext_resource type="PackedScene" uid="uid://0veqw1mvvhh6" path="res://Scenes/possession_zone.tscn" id="3_si848"]
+
+[node name="Device" type="Node2D" unique_id=1577730721]
+script = ExtResource("1_7okay")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1537131844]
+region_enabled = true
+region_rect = Rect2(1.3744202, 204.28638, 30.30095, 19.689056)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1717616645]
+
+[node name="PossessionZone" parent="." unique_id=1544379453 instance=ExtResource("3_si848")]

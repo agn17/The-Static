@@ -15,6 +15,10 @@ run/main_scene="uid://mlqshk88svtp"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Game="*uid://cj1iluiaptcnw"
+
 [display]
 
 window/size/viewport_width=320
@@ -67,9 +71,10 @@ down={
 
 [layer_names]
 
-2d_render/layer_1="world"
-2d_render/layer_2="frog"
-2d_render/layer_3="resident"
+2d_physics/layer_1="world"
+2d_physics/layer_2="frog"
+2d_physics/layer_3="resident"
+2d_physics/layer_5="Step"
 
 [physics]
 

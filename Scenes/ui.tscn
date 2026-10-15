@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bqj4my3hkxxwr"]
+
+[ext_resource type="Script" uid="uid://k8x28mshfput" path="res://Scripts/ui.gd" id="1_jxero"]
+
+[node name="UI" type="CanvasLayer" unique_id=1257941979]
+script = ExtResource("1_jxero")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1969795475]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 5.0
+offset_bottom = 28.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Winlabel" type="Label" parent="." unique_id=1479544876]
+visible = false
+offset_left = 102.0
+offset_top = -1.0
+offset_right = 227.0
+offset_bottom = 22.0
+text = "House Haunted!"
+horizontal_alignment = 1
+vertical_alignment = 1
