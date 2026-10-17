@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://612yg6n5boqa"]
+
+[ext_resource type="PackedScene" uid="uid://bptrfg8snvrb3" path="res://Scenes/device.tscn" id="1_7hh4b"]
+[ext_resource type="Texture2D" uid="uid://cln7em6pwsnw6" path="res://Assets/House-kitchen-Sheet2.png" id="2_3ocod"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hh4b"]
+atlas = ExtResource("2_3ocod")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ocod"]
+atlas = ExtResource("2_3ocod")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mt8ew"]
+atlas = ExtResource("2_3ocod")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4t0r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hh4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ocod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt8ew")
+}],
+"loop": 1,
+"name": &"active",
+"speed": 5.0
+}]
+
+[node name="Device" unique_id=1577730721 instance=ExtResource("1_7hh4b")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0" unique_id=1939604125]
+sprite_frames = SubResource("SpriteFrames_c4t0r")
+animation = &"active"
+
+[node name="Sprite2D" parent="." index="1" unique_id=1537131844]
+visible = false
+texture = ExtResource("2_3ocod")
+region_enabled = false
+
+[node name="PossessionZone" parent="." index="3" unique_id=1544379453]
+position = Vector2(0, 3)

@@ -73,6 +73,7 @@ animations = [{
 radius = 6.0
 
 [node name="Ghost" type="Node2D" unique_id=2031822428]
+z_index = 5
 script = ExtResource("1_3mxmt")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2122967767]

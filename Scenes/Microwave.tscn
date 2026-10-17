@@ -2,10 +2,44 @@
 
 [ext_resource type="PackedScene" uid="uid://bptrfg8snvrb3" path="res://Scenes/device.tscn" id="1_ioxth"]
 [ext_resource type="Texture2D" uid="uid://cln7em6pwsnw6" path="res://Assets/House-kitchen-Sheet2.png" id="2_qulpk"]
+[ext_resource type="Texture2D" uid="uid://bu277wkdsmo1c" path="res://Assets/House-kitchen-Sheetes2.png" id="3_vdaub"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xiqan"]
+atlas = ExtResource("3_vdaub")
+region = Rect2(64, 225, 32, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdaub"]
+atlas = ExtResource("3_vdaub")
+region = Rect2(0, 200, 32, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vadd4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xiqan")
+}],
+"loop": 1,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdaub")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Microwave" unique_id=1577730721 instance=ExtResource("1_ioxth")]
 signal_volume = 1.0
 cooldown = 3.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=1537131844]
+visible = false
 texture = ExtResource("2_qulpk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="3" unique_id=969217547]
+sprite_frames = SubResource("SpriteFrames_vadd4")
+animation = &"active"
+autoplay = "default"

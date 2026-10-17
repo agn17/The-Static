@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
-enum S { IDLE, CURIOUS, INVESTIGATING, SPOOKED }
+enum S { IDLE, CURIOUS, INVESTIGATING, SPOOKED, RETURNING }
 var state := S.IDLE
 var state_time := 0.0
 var target_x := 0.0
 var target_device: Node = null
 var pending_fear := 0.0
+var home_x:= 0.0
 
 @export var walk_speed := 30.0
 @export var hearing_scale := 600.0        # volume * this = hearing distance in px
@@ -18,6 +19,7 @@ var pending_fear := 0.0
 @onready var sprite: AnimatedSprite2D = get_node_or_null("AnimatedSprite2D")
 
 func _ready():
+	home_x= global_position.x
 	bubble.text = ""
 	Game.signal_emitted.connect(_on_signal)
 	_play("idle")
@@ -75,7 +77,19 @@ func _physics_process(delta):
 			_play("scared")
 			if state_time > 1.5:
 				bubble.text = ""
+				_set_state(S.RETURNING)
+		S.RETURNING:
+			var dx:= home_x-global_position.x
+			if state_time<3.0:
+				velocity.x=0.0
+				_play("idle")
+			elif absf(dx)<4.0:
+				velocity.x=0.0
 				_set_state(S.IDLE)
+			else:
+				velocity.x=signf(dx)*walk_speed*0.7
+				_face(dx)
+				_play("walk")
 
 	move_and_slide()
 

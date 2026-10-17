@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://buhimrnxushxy"]
+
+[ext_resource type="PackedScene" uid="uid://bptrfg8snvrb3" path="res://Scenes/device.tscn" id="1_phxir"]
+[ext_resource type="AudioStream" uid="uid://baawuoc3b67h5" path="res://Sounds/freesound_community-running-in-grass-6237 (mp3cut.net).mp3" id="2_4vo87"]
+[ext_resource type="Texture2D" uid="uid://bu277wkdsmo1c" path="res://Assets/House-kitchen-Sheetes2.png" id="2_phxir"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_up1fd"]
+atlas = ExtResource("2_phxir")
+region = Rect2(96, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vo87"]
+atlas = ExtResource("2_phxir")
+region = Rect2(32, 0, 32, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phxir"]
+atlas = ExtResource("2_phxir")
+region = Rect2(0, 0, 32, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4t0r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_up1fd")
+}],
+"loop": 1,
+"name": &"act",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vo87")
+}],
+"loop": 0,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phxir")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="fridge" unique_id=1577730721 instance=ExtResource("1_phxir")]
+signal_volume = 0.5
+fear_value = 25.0
+cooldown = 3.0
+sound = ExtResource("2_4vo87")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0" unique_id=1134682765]
+sprite_frames = SubResource("SpriteFrames_c4t0r")
+autoplay = "default"
+
+[node name="Sprite2D" parent="." index="1" unique_id=1537131844]
+visible = false
+
+[node name="PossessionZone" parent="." index="3" unique_id=1544379453]
+position = Vector2(-5, 0)

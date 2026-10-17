@@ -20,4 +20,4 @@ func add_fear(amount: float, device: Node):
 
 func _process(delta):
 	if not done:
-		fear = maxf(0.0, fear - 1.5 * delta)    # slow drain
+		fear = maxf(0.0, fear - 0.5 * delta)    # slow drain

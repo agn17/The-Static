@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://b7hitk7rm2jvf"]
+
+[ext_resource type="PackedScene" uid="uid://bptrfg8snvrb3" path="res://Scenes/device.tscn" id="1_3b5q5"]
+[ext_resource type="Texture2D" uid="uid://c1tsb0jeln4o5" path="res://Assets/32x32_Steampunk_Lamps.png" id="2_5vngr"]
+[ext_resource type="Texture2D" uid="uid://l4wfo5kh6usj" path="res://Assets/Steampunk_Lamps.png" id="2_xtpkl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpe6n"]
+atlas = ExtResource("2_xtpkl")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53l72"]
+atlas = ExtResource("2_xtpkl")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fisej"]
+atlas = ExtResource("2_xtpkl")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtpkl"]
+atlas = ExtResource("2_5vngr")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3b5q5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpe6n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53l72")
+}],
+"loop": 1,
+"name": &"act",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fisej")
+}],
+"loop": 1,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtpkl")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Lamp" unique_id=1577730721 instance=ExtResource("1_3b5q5")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0" unique_id=1246859108]
+sprite_frames = SubResource("SpriteFrames_3b5q5")
+animation = &"active"
+autoplay = "default"
+
+[node name="Sprite2D" parent="." index="1" unique_id=1537131844]
+visible = false

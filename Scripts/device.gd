@@ -9,17 +9,20 @@ var possessed := false
 var ready_to_use := true
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var ani_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready():
 	add_to_group("possessable")
 
 func possess():
 	possessed = true
-	sprite.modulate = Color(3, 3, 3)                      # possession flash
-	create_tween().tween_property(sprite, "modulate", Color.WHITE, 0.25)
+	ani_sprite.modulate = Color(3, 3, 3)                      # possession flash
+	create_tween().tween_property(ani_sprite, "modulate", Color.WHITE, 0.25)
+	ani_sprite.play("active")
 
 func release():
 	possessed = false
+	ani_sprite.play("default")
 
 func _process(_delta):
 	if possessed and Input.is_action_just_pressed("signal"):
@@ -42,6 +45,7 @@ func trigger():
 func _shake():
 	var t := create_tween()
 	for i in 8:
-		t.tween_property(sprite, "position",
+		t.tween_property(ani_sprite, "position",
 			Vector2(randf_range(-2, 2), randf_range(-1, 1)), 0.04)
-	t.tween_property(sprite, "position", Vector2.ZERO, 0.04)
+	t.tween_property(ani_sprite, "position", Vector2.ZERO, 0.04)
+	ani_sprite.play("act")

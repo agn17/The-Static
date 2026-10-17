@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://c30tv0nw7t8sa" path="res://Scenes/Microwave.tscn" id="3_eglq2"]
 [ext_resource type="AudioStream" uid="uid://c8fr8jxxqrdlb" path="res://Sounds/yodguard-scorpion-claw-attack-4-482507.mp3" id="4_rsyfn"]
 [ext_resource type="PackedScene" uid="uid://b1wohawu866gt" path="res://Scenes/resident.tscn" id="5_7w7ni"]
+[ext_resource type="PackedScene" uid="uid://bqj4my3hkxxwr" path="res://Scenes/ui.tscn" id="6_btda1"]
+[ext_resource type="PackedScene" uid="uid://buhimrnxushxy" path="res://Scenes/fridge.tscn" id="7_xq3o0"]
+[ext_resource type="PackedScene" uid="uid://b7hitk7rm2jvf" path="res://Scenes/lamp.tscn" id="8_2yvf5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpde8"]
 size = Vector2(532, 24)
@@ -58,6 +61,7 @@ offset_bottom = 22.0
 
 [node name="table" type="StaticBody2D" parent="." unique_id=66586763]
 position = Vector2(71, 135)
+collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="table" unique_id=574504072]
 position = Vector2(42.5, 12)
@@ -86,15 +90,28 @@ offset_bottom = 9.0
 color = Color(0.7187428, 0.6764048, 0.56289953, 1)
 
 [node name="Frog" parent="." unique_id=970392460 instance=ExtResource("1_dtjkg")]
+z_index = 5
 position = Vector2(197, 150)
+collision_layer = 16
 
 [node name="Ghost" parent="." unique_id=2031822428 instance=ExtResource("2_eglq2")]
 position = Vector2(162, 148)
 
 [node name="Microwave" parent="." unique_id=1577730721 instance=ExtResource("3_eglq2")]
-position = Vector2(118, 129)
+position = Vector2(113, 128)
 sound = ExtResource("4_rsyfn")
 
 [node name="Resident" parent="." unique_id=479741710 instance=ExtResource("5_7w7ni")]
 position = Vector2(264, 146)
 scale = Vector2(1.5, 1.5)
+
+[node name="UI" parent="." unique_id=1257941979 instance=ExtResource("6_btda1")]
+
+[node name="fridge" parent="." unique_id=725145697 instance=ExtResource("7_xq3o0")]
+position = Vector2(300, 145)
+
+[node name="Lamp" parent="." unique_id=48613986 instance=ExtResource("8_2yvf5")]
+position = Vector2(358, 145)
+signal_volume = 0.4
+fear_value = 12.0
+cooldown = 2.0

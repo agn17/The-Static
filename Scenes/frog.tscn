@@ -156,6 +156,7 @@ animations = [{
 }]
 
 [node name="Frog" type="CharacterBody2D" unique_id=970392460]
+collision_layer = 2
 collision_mask = 17
 script = ExtResource("1_4ygq6")
 sprite_faces_right = false
